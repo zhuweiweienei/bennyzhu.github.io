@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Getting Started with Hugo | My blog</title>
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="https://bennyzhu.github.io/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://bennyzhu.github.io/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://bennyzhu.github.io/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://bennyzhu.github.io/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="https://bennyzhu.github.io/css/syntax.css" type="text/css" media="all" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    </head>
+
+<style>
+    body{
+        background: #282828;
+        padding-top: 80px;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light shadow"> 
+  <div class="container-fluid">
+    <img src="https://bennyzhu.github.io/profile/avatar.png" class="rounded-circle avatar" alt="avatar">
+    <a class="navbar-brand site-title" style="color: #458588" href="https://bennyzhu.github.io"> ./My blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText" style="color: #282828;">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/"><i class='fas fa-home'></i> Home</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/post/"><i class='fas fa-pen-square'></i> Posts</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/page/about/"><i class='fas fa-info'></i> About</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/project/"><i class='fas fa-tasks'></i> Project</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/tags/"><i class='fas fa-tags'></i> Tags</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    background: #fbf1c7;
+  }
+  .nav-link, .dropdown-item {
+    color: #282828 !important;
+    padding: 10px;
+    transition: transform .2s;  
+    margin: 0 auto;
+    font-weight: bold;
+  }
+  .nav-link:hover, .dropdown-item:hover {
+    color: #d65d0e !important;
+    transform: scale(1.05);
+  }
+
+  .active {
+    color: #d65d0e !important;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+  
+  .site-title {
+    font-weight: bolder;
+    color: #458588;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+  }
+</style>
+
+
+<script>
+  (function() {
+      const links = document.getElementsByClassName("nav-link")
+      const currentUrl = location.href
+      for (const link of links) {
+          if (link.href === currentUrl) {
+              link.classList.add('active')
+          }
+      }
+  }())
+  </script>
+
+    <div class="container">
+        <main class="content">
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">   
+            <h2 class="post-title">Getting Started with Hugo</h2>
+            <time class="post-date" datetime="2014-04-02">Published Wed, Apr 2, 2024</time>
+        </div>
+        <div class="card-body">
+            <p class="text-justify"><h2 id="step-1-install-hugo">Step 1. Install Hugo</h2>
+<p>Goto <a href="https://github.com/spf13/hugo/releases">hugo releases</a> and download the
+appropriate version for your os and architecture.</p>
+<p>Save it somewhere specific as we will be using it in the next step.</p>
+<p>More complete instructions are available at <a href="/overview/installing/">installing hugo</a></p>
+<h2 id="step-2-build-the-docs">Step 2. Build the Docs</h2>
+<p>Hugo has its own example site which happens to also be the documentation site
+you are reading right now.</p>
+<p>Follow the following steps:</p>
+<ol>
+<li>Clone the <a href="https://github.com/spf13/hugo">hugo repository</a></li>
+<li>Go into the repo</li>
+<li>Run hugo in server mode and build the docs</li>
+<li>Open your browser to http://localhost:1313</li>
+</ol>
+<p>Corresponding pseudo commands:</p>
+<pre><code>git clone https://github.com/spf13/hugo
+cd hugo
+/path/to/where/you/installed/hugo server --source=./docs
+&gt; 29 pages created
+&gt; 0 tags index created
+&gt; in 27 ms
+&gt; Web Server is available at http://localhost:1313
+&gt; Press ctrl+c to stop
+</code></pre>
+<p>Once you&rsquo;ve gotten here, follow along the rest of this page on your local build.</p>
+<h2 id="step-3-change-the-docs-site">Step 3. Change the docs site</h2>
+<p>Stop the Hugo process by hitting ctrl+c.</p>
+<p>Now we are going to run hugo again, but this time with hugo in watch mode.</p>
+<pre><code>/path/to/hugo/from/step/1/hugo server --source=./docs --watch
+&gt; 29 pages created
+&gt; 0 tags index created
+&gt; in 27 ms
+&gt; Web Server is available at http://localhost:1313
+&gt; Watching for changes in /Users/spf13/Code/hugo/docs/content
+&gt; Press ctrl+c to stop
+</code></pre>
+<p>Open your <a href="http://vim.spf13.com">favorite editor</a> and change one of the source
+content pages. How about changing this very file to <em>fix the typo</em>. How about changing this very file to <em>fix the typo</em>.</p>
+<p>Content files are found in <code>docs/content/</code>. Unless otherwise specified, files
+are located at the same relative location as the url, in our case
+<code>docs/content/overview/quickstart.md</code>.</p>
+<p>Change and save this file.. Notice what happened in your terminal.</p>
+<pre><code>&gt; Change detected, rebuilding site
+
+&gt; 29 pages created
+&gt; 0 tags index created
+&gt; in 26 ms
+</code></pre>
+<p>Refresh the browser and observe that the typo is now fixed.</p>
+<p>Notice how quick that was. Try to refresh the site before it&rsquo;s finished building.. I double dare you.
+Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.</p>
+<h2 id="step-4-have-fun">Step 4. Have fun</h2>
+<p>The best way to learn something is to play with it.</p>
+</p>
+        </div>
+    </div>    
+</div>
+
+
+
+<div class="d-flex justify-content-center">
+ 
+<ul>
+   <a href="https://bennyzhu.github.io/tags/go/"><span class="badge">go</span></a> <a href="https://bennyzhu.github.io/tags/golang/"><span class="badge">golang</span></a> <a href="https://bennyzhu.github.io/tags/hugo/"><span class="badge">hugo</span></a> <a href="https://bennyzhu.github.io/tags/development/"><span class="badge">development</span></a></ul>
+
+</div>
+
+<style>
+    .badge {
+        background-color:#458588;
+        color: #fbf1c7;;
+    }
+</style>
+
+
+
+  
+<style>
+     .resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C;
+  border-color: #35465C;
+}
+
+.resp-sharing-button--tumblr:hover,
+.resp-sharing-button--tumblr:active {
+  background-color: #222d3c;
+  border-color: #222d3c;
+}
+
+.resp-sharing-button--email {
+  background-color: #777777;
+  border-color: #777777;
+}
+
+.resp-sharing-button--email:hover,
+.resp-sharing-button--email:active {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c;
+  border-color: #bd081c;
+}
+
+.resp-sharing-button--pinterest:hover,
+.resp-sharing-button--pinterest:active {
+  background-color: #8c0615;
+  border-color: #8c0615;
+} 
+  </style>
+
+	</main>
+</div>
+
+<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top shadow" role="button"><i class="fas fa-chevron-up"></i></a>
+	
+<footer class="container-fluid bg-4 text-center">
+
+<div class="d-flex justify-content-center">
+		<div class="p-2 bd-highlight">
+			<a href="%3cYOUR%20URL%20HERE%3e" rel=me aria-label=Linkedin>
+			<i class="fab fa-linkedin fa-2x" aria-hidden=true></i>			
+		</div>
+		<div class="p-2 bd-highlight">
+			<a href="%3cYOUR%20URL%20HERE%3e" rel=me aria-label=GitHub>
+			<i class="fab fa-github fa-2x" aria-hidden=true></i>
+		</div>
+		<div class="p-2 bd-highlight">
+			<a href="%3cYOUR%20URL%20HERE%3e" rel=me aria-label=instagram>
+			<i class="fab fa-instagram fa-2x" aria-hidden=true></i>
+		</div>
+		<div class="p-2 bd-highlight">
+			<a href="mailto:%3cYOUR%20EMAIL%20HERE%3e" rel=me aria-label=e-mail>
+			<i class="fas fa-envelope fa-2x" aria-hidden=true></i>
+			</a>
+		</div>
+</div>
+
+	<p>&copy;2021 My blog</p>
+	
+	<p>Hugo Theme Made By <a style="color:#458588;" href="rijo.netlify.app">Rijo Thomas</a></p>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</footer>
+
+<style>
+	.bg-4 {
+	  background-color: #282828;
+	  color: #928374;
+	}
+	footer {
+		padding-top: 30px;
+	}
+
+	.back-to-top {
+    	position: fixed;
+    	bottom: 25px;
+    	right: 20px;
+		background: #458588;
+		color: #282828;
+		border-color: #458588;
+	}
+	.back-to-top:hover{
+		background: #d65d0e;
+		border-color: #d65d0e;
+	}
+	.fa-2x {
+		color: #458588;
+	}
+	.fa-2x:hover {
+		color: #d65d0e;
+	}
+</style>
+
+<script>
+	var toTopButton = document.getElementById("back-to-top")
+	toTopButton.style.display = "none";
+	document.querySelector('body').onscroll = function(){
+	if (window.scrollY > 500)
+		toTopButton.style.display = "block";
+	else
+		toTopButton.style.display = "none";
+	};
+</script>
+
+</body>
+</html>
+
+
+
+<style>
+    .card {
+        background: #fbf1c7;
+    }
+    .card-body {
+        color: #282828;
+    }
+    .post-title {
+        color: #458588;
+        font-weight: bolder;
+    }
+
+    .post-date {
+        color: #928374;
+    }
+</style>
